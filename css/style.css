@@ -199,6 +199,34 @@ a:focus {
     letter-spacing: -1px;
 }
 
+.pull-right {
+    float: right;
+}
+
+.bottom-left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.padded {
+    padding: 10px;
+}
+
+.slide h1 {
+    font-size: 80px;
+    font-weight: bold;
+    line-height: 100px;
+    margin: 50px 0;
+}
+
+
 .slide q {
     display: block;
     font-size: 50px;
