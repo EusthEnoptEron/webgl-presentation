@@ -6,26 +6,267 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
 
 	<title>WebGL</title>
+<link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+	<link href="css/impress.css" rel="stylesheet" />
 	<link rel="stylesheet" href="css/style.css">
+	<link href="css/impress-progress.css" rel="stylesheet" />
+
+	<link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+	<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+	<script type="text/javascript" src="js/meny.js"></script>
+	<script type="text/javascript" src="build/three.min.js"></script>
+	<script src="js/impress-progress.js"></script>
+
 </head>
 <body>
-	<div id="impress" data-max-scale="2">
-		<div class="step slide" data-x="0" data-y="0">
-			<h1>The Web meets 3D</h1>
-			<p class="pull-right">by Simon Meer</p>
+	<div class="meny">
+		<!-- your menu items -->
+		<h2>This is a menu</h2>
+		<ul>
+			<li><a href="http://lab.hakim.se/avgrund/">Top</a></li>
+			<li><a href="http://lab.hakim.se/radar/">Images</a></li>
+			<li><a href="http://lab.hakim.se/forkit-js/">Forums</a></li>
+			<li><a href="http://lab.hakim.se/scroll-effects/">Other stuff</a></li>
+			<li><a href="http://lab.hakim.se/zoom-js">Cool story, bro</a></li>
+		</ul>
+	</div>
+	<div class="contents">
+		<div id="impress" data-max-scale="2">
+			<div class="step slide" data-x="0" data-y="0" data-rotate-y="100" data-z="-5000">
+				<h1>3D Goes Online</h1>
+				<p class="pull-right">by Simon Meer</p>
+			
+				<img src="img/3D-objects-icon.png" class="bottom-left padded" alt="">
+				<img src="img/Google-Chrome-Chromium-icon.png" class="bottom-right padded" alt="">
+			</div>
 		
-			<img src="img/3D-objects-icon.png" class="bottom-left padded" alt="">
-			<img src="img/Google-Chrome-Chromium-icon.png" class="bottom-right padded" alt="">
-		</div>
+			<div id="center" class="step" data-x="5000" data-y="2000" data-z="3000">
+				<h1 class="header">Web + 3D</h1>
+			</div>
 
-		<div class="step slide" data-x="0" data-y="0" data-z="1000">
-			<q>This presentation is a website!</q>
-		</div>
+			<div class="step" data-x="5000" data-y="500">
+				<h1 class="header">Technologies</h1>
+				<ul>
+					<li class="substep">CSS3 <i>(you're looking at it)</i></li>
+					<li class="substep">Canvas
+						<ul>
+							<li class="substep">2D</li>
+							<li class="substep">3D (WebGL)</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+			<iframe src="examples/webgl_terrain_dynamic.html" class="step" data-x="5000" data-y="500" data-rotate-y="90" frameborder="0"></iframe>
 
+			<div class="step" data-x="7000" data-y="900" data-rotate="0">
+				<img src="img/webgl-logo.svg" width="100%">
+			</div>
+
+			<div class="step"  data-x="6500" data-y="700" data-rotate="0" data-scale="0.4">
+				<h1>What is WebGL?</h1>
+				<blockquote>
+					<p>
+					WebGL (Web Graphics Library) is a JavaScript API for rendering interactive 3D graphics and 2D graphics within any compatible web browser <em class="color">without the use of plug-ins</em>.
+					</p>
+				</blockquote>
+				<ul>
+					<li class="substep">Based on OpenGL ES 2.0 <br><em>(OpenGL for Embedded Systems)</em></li>
+					<li class="substep">
+						Allows the use of GLSL shaders <br><em>(OpenGL Shading Language)</em>
+					</li>
+				</ul>
+			</div>
+		
+			<div class="step" data-x="6500" data-y="950" data-scale="0.4" data-rotate="0">
+				<h1>History</h1>
+				<ul>
+					<li><b>2006</b>: First experiments at Mozilla</li>
+					<li><b>2009</b>: Khronos Group founds the WebGL Working Group</li>
+					<li><b>2011</b>: WebGL specification is released</li>
+					<li><b>2013</b>: Work on new specification begins <br><em>(OpenGL ES 3.0)</em></li>
+				</ul>
+				<img src="img/history-icon.png" alt="" class="bottom right">
+			</div>
+			
+			<div class="step" data-x="7100" data-y="1150" data-scale="0.4">
+				<h1>How it works</h1>
+				<ul>
+					<li><em class="color">Don't use as-is.</em></li>
+					<li>Very low-level:
+						<ul>
+							<li>Define vertex shader</li>
+							<li>Define fragment shader</li>
+							<li>Define vertices</li>
+							<li>...</li>
+						</ul>
+					</li>
+				</ul>
+				<em class="color">→ Use a library</em>
+			</div>
+
+			<div class="step" data-x="7500" data-y="1150" data-scale="0.4">
+				<h1>Libraries</h1>
+				<ul style="font-size: 1.5em; line-height: 1em;">
+					<li><b>Three.js</b></li>
+					<li>GLGE</li>
+					<li>PhiloGL</li>
+					<li>Canvas 3d</li>
+					<li>sceneJS</li>
+					<li>...</li>
+				</ul>
+			</div>
+
+			<div class="step" data-x="7600" style="opacity: 1" data-y="700" data-scale="0.4" data-rotate="0">
+				<h1>Example</h1>
+				<pre><code>// revolutions per second
+  var angularSpeed = 0.2; 
+  var lastTime = 0;
+
+  // this function is executed on each animation frame
+  function animate(){
+    // update scene
+    // ...
+  }
+
+  // renderer
+  var renderer = new THREE.WebGLRenderer();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.body.appendChild(renderer.domElement);
+
+  // camera
+  var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
+  camera.position.z = 500;
+
+  // scene
+  var scene = new THREE.Scene();
+            
+  // cube
+  var cube = new THREE.Mesh(new THREE.CubeGeometry(200, 200, 200), new THREE.MeshNormalMaterial());
+  scene.add(cube);
+
+  // start animation
+  animate();</code></pre>
+
+  				<div id="example-2" class="top right"></div>
+
+				<div class="step" data-x="7600" data-y="700" data-scale="0.3" data-rotate="0">
+				</div>
+				<div class="step" data-x="7600" data-y="800" data-scale="0.3" data-rotate="0">
+				</div>
+			</div>
+		
+			<div class="step" data-x="7000" data-y="2900" data-rotate="0">
+				<h1 class="header">Situation</h1>
+			</div>
+			
+			<div class="step" style="height: 0" data-x="6900" data-y="2700" data-scale="0.4">
+				<q>- Mostly demos and music videos</q>
+			</div>
+			<div class="step" style="height: 0" data-x="6900" data-y="2725" data-scale="0.4">
+				<q>- Technology wide-spread </q>
+			</div>
+			<div class="step" data-x="6900" data-y="2735" data-rotate="-90" data-scale="0.02">
+				<img width="100%" src="img/support.png" alt="">
+			</div>
+			<div class="step" style="height: 0" data-x="6900" data-y="2750" data-scale="0.4">
+				<q>- There are some real-world applications</q>
+			</div>
+
+			<div class="step" data-rotate-x="120" id="google" data-x="6900" data-y="2750" data-scale="0.4">
+			<a href="https://www.google.com/maps/@47.1331127,7.245648,60a,35y,270h,78.65t/data=!3m1!1e3" target="_blank">
+				<img src="img/Google_maps_logo.png" alt="" width="100%">
+				</a>
+			</div>
+			
+			<div class="step" data-rotate-x="120" id="clara" data-x="7300" data-y="2750" data-scale="0.4" style=" -webkit-perspective: 2000;">
+				<img src="img/ClaraLogoBeta.png" alt="" width="100%">
+				<img src="img/clara.jpg" style="-webkit-transform: rotateX(32deg);" alt="" width="100%">
+			</div>
+			<div class="step" style="height: 0" data-x="6900" data-y="2775" data-scale="0.4">
+				<q>- Is not taken all that seriously</q>
+			</div>
+			<div class="step" style="height: 0" data-x="6900" data-y="2800" data-scale="0.4">
+				<q>- But might gain some momentum!</q>
+			</div>
+
+			<div class="step" class="step" data-x="6900" data-y="2800" data-scale="0.4" data-z="1000" width="560" height="315"><iframe  width="560" height="315" src="//www.youtube.com/embed/ffeAdwrEKTE" frameborder="0" allowfullscreen></iframe></div>
+			
+
+
+			<div class="step" data-x="5000" data-y="3300">
+				<h1 class="header">Questions</h1>
+				<img src="img/pT5eMekqc.png" height="80%" alt="">
+			</div>
+
+			<div class="step" data-x="3000" data-y="2900" data-rotate="0">
+				<h1 class="header">Discussion</h1>
+			</div>
+			<div class="step" style="height: 0" data-x="2710" data-y="2650" data-scale="0.05">
+				<q>How will WebGL influence the game scene?</q>
+			</div>
+			<div class="step" style="height: 0" data-x="2975" data-y="2670" data-scale="0.03">
+				<q>Can you imagine other uses for 3D in the browser?</q>
+			</div>
+			
+			<div id="center" class="step" data-x="5000" data-y="2000" data-z="3000">
+			</div>
+
+			<!-- <div class="step" id="example-1" data-x="1000"></div> -->
+			<!-- <iframe class="step" data-x="1000" src="http://caniuse.com/webgl/embed/"></iframe> -->
+		</div>
 	</div>
 	
+<!-- 	<div class="progressbar"><div></div></div>
+	<div class="progress"></div> -->
 	<!-- init impress.js -->
-	<script src="js/impress.js"></script>
+	<script src="js/impress.tehfoo.js"></script>
 	<script>impress().init();</script>
+	<script>
+	// var meny = Meny.create({
+	//     // The element that will be animated in from off screen
+	//     menuElement: document.querySelector( '.meny' ),
+
+	//     // The contents that gets pushed aside while Meny is active
+	//     contentsElement: document.querySelector( '.contents' ),
+
+	//     // The alignment of the menu (top/right/bottom/left)
+	//     position: 'left',
+
+	//     // The width of the menu (when using left/right position)
+	//     width: 260,
+
+	//     // The angle at which the contents will rotate to.
+	//     angle: 30,
+
+	//     // The mouse distance from menu position which can trigger menu to open.
+	//     threshold: 40,
+
+	//     // Width(in px) of the thin line you see on screen when menu is in closed position.
+	//     overlap: 6,
+
+	//     // The total time taken by menu animation.
+	//     transitionDuration: '0.5s',
+
+	//     // Transition style for menu animations
+	//     transitionEasing: 'ease',
+
+	//     // Gradient overlay for the contents
+	//     gradient: '',
+
+	//     // Use mouse movement to automatically open/close
+	//     mouse: true,
+
+	//     // Use touch swipe events to open/close
+	//     touch: true
+	// });
+
+	</script>
+
+	<script type="text/javascript" src="js/example-2.js"></script>
 </body>
 </html>
